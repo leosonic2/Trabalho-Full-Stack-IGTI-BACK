@@ -1,6 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
+import mongoose from 'mongoose';
 
 import { gradeRouter } from './routes/gradeRouter.js';
 import { logger } from './config/logger.js';
@@ -8,7 +9,9 @@ import { db } from './models/index.js';
 
 (async () => {
   try {
-    await db.mongoose.connect(db.url, {
+    console.log(mongoose);
+
+    await mongoose.connect(db.url, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
