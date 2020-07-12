@@ -1,7 +1,7 @@
 import { db } from '../models/index.js';
 import { logger } from '../config/logger.js';
 
-const Grades = db.mongoose;
+const Grades = db.Grades;
 
 const create = async (req, res) => {
   const grades = new Grades({
