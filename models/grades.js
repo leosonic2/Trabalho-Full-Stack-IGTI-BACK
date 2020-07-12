@@ -1,13 +1,20 @@
-//Criação do modelo
 export default (mongoose) => {
-  const gradesSchema = mongoose.Schema({
-    name: { type: String, required: true },
-    subject: { type: String, required: true },
-    type: { type: String, required: true },
+  const schema = mongoose.Schema({
+    name: {
+      type: String,
+      require: true,
+    },
+    subject: {
+      type: String,
+      require: true,
+    },
+    type: {
+      type: String,
+      require: true,
+    },
     value: {
       type: Number,
-      required: true,
-      //valida  se a nota inserida é menor que 0
+      require: true,
       validate(value) {
         if (value < 0) {
           throw new Error('Valor Negativo para a nota não permitido');
@@ -19,8 +26,6 @@ export default (mongoose) => {
       default: Date.now(),
     },
   });
-  //definindo Modelo da Coleção
-  const gradesModel = mongoose.model('grades', gradesSchema, 'grades');
-
-  return gradesModel;
+  const grades = mongoose.model('grades', schema, 'grades');
+  return grades;
 };
