@@ -1,7 +1,7 @@
 import { db } from '../models/index.js';
 import { logger } from '../config/logger.js';
 
-const Grades = db.grades;
+const Grades = db.mongoose;
 
 const create = async (req, res) => {
   const grades = new Grades({
@@ -31,7 +31,9 @@ const findAll = async (req, res) => {
     : {};
 
   try {
-    const data = await Grades.find({});
+    console.log(Grades);
+
+    const data = await Grades.find(condition);
     res.send(data);
     logger.info(`GET /grade`);
   } catch (error) {
