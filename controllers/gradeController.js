@@ -31,7 +31,7 @@ const findAll = async (req, res) => {
     : {};
 
   try {
-    const data = await Grades.find(condition);
+    const data = await Grades.find({});
     res.send(data);
     logger.info(`GET /grade`);
   } catch (error) {
@@ -115,7 +115,7 @@ const removeAll = async (req, res) => {
     if (!data) {
       res.status(404).send({ message: `Nao ha Grades para exclusao` });
     } else {
-      res.send({ message: 'Grades excluidos com sucesso' });
+      res.send({ message: 'Grades excluidos com sucesso' her});
     }
     logger.info(`DELETE /grade`);
   } catch (error) {
