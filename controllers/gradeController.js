@@ -115,7 +115,7 @@ const removeAll = async (req, res) => {
     if (!data) {
       res.status(404).send({ message: `Nao ha Grades para exclusao` });
     } else {
-      res.send({ message: 'Grades excluidos com sucesso' her});
+      res.send({ message: 'Grades excluidos com sucesso' });
     }
     logger.info(`DELETE /grade`);
   } catch (error) {
